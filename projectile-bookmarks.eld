@@ -1,0 +1,1 @@
+("~/notes/" "~/abhi/notes/" "~/projects/rust/slug/" "/nix/store/fp66ds8dpc8zf9i49i7h11i3rgqfpml2-emacs-gtk3-29.4/share/emacs/29.4/lisp/")
