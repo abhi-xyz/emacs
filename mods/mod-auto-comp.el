@@ -1,3 +1,9 @@
+(require 'vertico)
+(vertico-mode 1)
+;;(vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
+(require 'savehist)
+  (savehist-mode)
+
 
 (require 'marginalia)
 (marginalia-mode)

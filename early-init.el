@@ -17,3 +17,14 @@
 (scroll-bar-mode -1)         ;; Disable the scroll bar
 (tool-bar-mode -1)           ;; Disable the tool bar
 (setq org-edit-src-content-indentation 0) ;; Set src block automatic indent to 0 instead of 2.
+
+;(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+
+(add-to-list 'load-path "~/.config/emacs/mods/")
+(add-to-list 'load-path "~/.config/emacs/mods/svg-lib/")
+(add-to-list 'load-path "~/.config/emacs/mods/nano-sidebar/")
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/nano-theme/")
+
+(setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))

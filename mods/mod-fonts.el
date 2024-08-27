@@ -1,3 +1,7 @@
+(require 'all-the-icons)
+(require 'nerd-icons)
+
+
 ;; --
 (add-to-list 'default-frame-alist
              '(font . "Iosevka Nerd Font-13"))

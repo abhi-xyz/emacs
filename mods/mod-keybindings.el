@@ -6,6 +6,7 @@
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+(global-set-key [escape] 'keyboard-escape-quit)
 
 (require 'general)
   (general-evil-setup)
@@ -37,14 +38,20 @@
   "n" '(:ignore t :wk "Neotree")
   "n n" '(neotree-toggle :wk "Toggle neotree file viewer")
   
+  "o" '(:ignore t :wk "Org Prefix")
   "o ." '(completion-at-point :wk "Completion at point")
-
  "o t" '(org-roam-buffer-toggle :wk "Org roam buffer toggle")
  "o f" '(org-roam-node-find :wk "org-roam-node-find")
  "o g" '(org-roam-graph :wk "org-roam-graph")
  "o i" '(org-roam-node-insert :wk "Org roam buffer toggle")
  "o c" '(org-roam-capture :wk "org-roam-capture")
  "o d" '(org-roam-dailies-capture-today :wk "org-roam-dailies-capture-today")
+
+
+  "t" '(:ignore t :wk "Treemacs Prefix")
+ "t a" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs add and display current project exclusively")
+ "t t" '(treemacs :wk "Toggle Treemacs")
+ "t n" '(neotree-toggle :wk "Toggle Neotree")
  )
 
 
@@ -60,6 +67,6 @@
 
 
 
-(global-set-key (kbd "C-a") 'neotree-toggle)
+(global-set-key (kbd "C-a") 'treemacs)
 
 (provide 'mod-keybindings)
