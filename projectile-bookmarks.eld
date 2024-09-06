@@ -1,1 +1,0 @@
-("~/web/website/" "~/.config/emacs/" "~/github/website/" "~/notes/" "~/projects/rust/slug/" "~/abhi/notes/" "/nix/store/fp66ds8dpc8zf9i49i7h11i3rgqfpml2-emacs-gtk3-29.4/share/emacs/29.4/lisp/")

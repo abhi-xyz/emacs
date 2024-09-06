@@ -1,6 +1,6 @@
 (load-theme 'elegant t)
 
-(require 'mod-straight)
+(require 'straight)
 
 ;; -- dashboard
 
@@ -55,6 +55,121 @@
   (define-key evil-motion-state-map (kbd "RET") nil)
   (define-key evil-motion-state-map (kbd "TAB") nil))
 (setq org-return-follows-link  t)
+
+;; -- fonts
+
+(use-package all-the-icons
+             :ensure t)
+(use-package nerd-icons
+             :ensure t)
+
+(add-to-list 'default-frame-alist
+             '(font . "Iosevka Nerd Font-13"))
+
+(custom-set-faces
+ '(font-lock-comment-face
+   ((t (:family "Maple Mono" :slant italic))))
+ '(font-lock-comment-delimiter-face
+   ((t (:family "Maple Mono" :slant italic)))))
+
+;; -- general keymaps
+
+(use-package general
+             :ensure t
+             )
+
+(global-set-key (kbd "C-a") 'treemacs)
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
+(global-set-key [escape] 'keyboard-escape-quit)
+
+(general-evil-setup)
+
+;; set up 'SPC' as the global leader key
+(general-create-definer abhi-leaderkey
+                        :states '(normal insert visual emacs)
+                        :keymaps 'override
+                        :prefix "SPC" ;; set leader
+                        :global-prefix "M-SPC") ;; access leader in insert mode
+
+(abhi-leaderkey
+  "b b" '(switch-to-buffer :which-key "Switch buffer")
+
+  "d" '(:ignore t :wk "Dired")
+  "d d" '(dired :wk "Open dired")
+
+  "e r" '(eval-region :wk "Eval Region")
+  "e b" '(eval-buffer :wk "Eval Buffer")
+
+  "f" '(:ignore t :wk "Files")   
+  "f f" '(find-file :which-key "Find file")
+  "f o" '(org-roam-node-find :wk "Find org roam nodes")
+
+  "l" '(:ignore t :wk "LaTeX")   
+  "l l" '(org-latex-export-as-latex :wk "Org to LaTeX Export")
+  "l p" '(org-latex-export-to-pdf :wk "Org to PDF Export")
+
+  "n" '(:ignore t :wk "Neotree")
+  "n n" '(neotree-toggle :wk "Toggle neotree file viewer")
+
+  "o" '(:ignore t :wk "Org Prefix")
+  "o ." '(completion-at-point :wk "Completion at point")
+  "o t" '(org-roam-buffer-toggle :wk "Org roam buffer toggle")
+  "o f" '(org-roam-node-find :wk "org-roam-node-find")
+  "o g" '(org-roam-graph :wk "org-roam-graph")
+  "o i" '(org-roam-node-insert :wk "Org roam buffer toggle")
+  "o c" '(org-roam-capture :wk "org-roam-capture")
+  "o d" '(org-roam-dailies-capture-today :wk "org-roam-dailies-capture-today")
+
+
+  "t" '(:ignore t :wk "Treemacs Prefix")
+  "t a" '(treemacs-add-and-display-current-project-exclusively :wk "Treemacs add and display current project exclusively")
+  "t t" '(treemacs :wk "Toggle Treemacs")
+  "t n" '(neotree-toggle :wk "Toggle Neotree")
+  )
+
+;; -- org mode
+
+(add-hook 'org-mode-hook 'org-indent-mode)
+
+(require 'org-modern)
+(global-org-modern-mode 1)
+
+
+
+
+; org-mode to hide the emphasis markup (e.g. /.../ for italics, *...* for bold, etc.):
+(setq org-hide-emphasis-markers t)
+
+(custom-set-faces
+ '(org-level-1 ((t (:inherit outline-1 :height 1.7))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.6))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.4))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.3))))
+ '(org-level-6 ((t (:inherit outline-5 :height 1.2))))
+ '(org-level-7 ((t (:inherit outline-5 :height 1.1)))))
+
+(require 'org-tempo)
+
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory (file-truename "/home/abhi/documents/org-roam/"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))
 
 
 ;; -- spacious padding  
@@ -157,10 +272,6 @@
 
 
 
-(require 'mod-fonts)
-(require 'mod-keybindings)
-;(require 'mod-org)
-;(require 'mod-projectile)
 (require 'mod-auto-comp)
 (require 'mod-org-tex)
 (require 'mod-neotree)

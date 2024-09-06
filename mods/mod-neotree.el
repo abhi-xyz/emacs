@@ -1,5 +1,6 @@
 
 
+
 (use-package neotree
   :ensure t
   )
@@ -23,7 +24,7 @@
                  (make-local-variable 'auto-hscroll-mode)
                  (setq auto-hscroll-mode nil))))
 
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
 
 ;; Customize icons for specific file types using Unicode or text characters
 
