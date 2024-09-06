@@ -1,4 +1,8 @@
-(require 'nano-modeline)
+(use-package nano-modeline
+  :ensure t
+  )
+
+
 ; -- https://github.com/rougier/nano-modeline
 (add-hook 'prog-mode-hook            #'nano-modeline-prog-mode)
 (add-hook 'text-mode-hook            #'nano-modeline-text-mode)

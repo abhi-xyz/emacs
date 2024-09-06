@@ -1,5 +1,7 @@
+(use-package rainbow-mode
+  :ensure t
+  )
 
-(require 'rainbow-mode)
 (add-hook 'prog-mode-hook 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'html-mode-hook 'rainbow-mode)
@@ -13,7 +15,9 @@
 
 (add-hook 'rainbow-mode-hook 'my-rainbow-mode-settings)
 
-(require 'rainbow-delimiters)
+(use-package rainbow-delimiters
+  :ensure t
+  )
 
 ;; Enable rainbow-delimiters-mode in relevant modes
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)

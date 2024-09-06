@@ -1,4 +1,6 @@
-(require 'dashboard)
+(use-package dashboard
+  :ensure t
+  )
   (setq initial-buffer-choice 'dashboard-open)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)

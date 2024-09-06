@@ -1,14 +1,19 @@
+
 ;; Expands to: (elpaca evil (use-package evil :demand t))
     (setq evil-want-integration t  ;; This is optional since it's already set to t by default.
           evil-want-keybinding nil
           evil-vsplit-window-right t
           evil-split-window-below t
           evil-undo-system 'undo-redo)  ;; Adds vim-like C-r redo functionality
-(require 'evil)
-    (evil-mode)
 
-(require 'evil-collection)
-  ;; Do not uncomment this unless you want to specify each and every mode
+(use-package evil
+             :ensure t)
+(evil-mode 1)
+
+(use-package evil-collection
+             :ensure t)
+
+;; Do not uncomment this unless you want to specify each and every mode
   ;; that evil-collection should works with.  The following line is here 
   ;; for documentation purposes in case you need it.  
   ;; (setq evil-collection-mode-list '(calendar dashboard dired ediff info magit ibuffer))

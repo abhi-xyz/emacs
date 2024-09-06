@@ -1,4 +1,6 @@
-(require 'which-key)
+(use-package which-key
+  :ensure t
+  )
     (which-key-mode 1)
   (setq which-key-side-window-location 'bottom
 	  which-key-sort-order #'which-key-key-order-alpha

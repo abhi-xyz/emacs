@@ -1,19 +1,26 @@
- (require 'mod-straight)
+ (setq mode-line-format
+          (list
+           ;; name of major mode
+           "%m=> "
+           ;; buffer name
+           "buffer %b, "
+           ;; line number
+           "line %l "
+           "-- user: "
+           ;; user login name/ID
+           (getenv "USER")))
 
 
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1))
+(global-hl-line-mode 1)
 
-
-;; -- spacious padding  
+(require 'mod-straight)
 
 (require 'spacious-padding)
 
 (setq spacious-padding-widths
       '( :internal-border-width 35 ;; -- refers to the space between the boundaries of the Emacs frame and where the text contents start.
          :header-line-width 4
-         :mode-line-width 5
+         :mode-line-width 6
          :tab-width 4
          :right-divider-width 30
          :scroll-bar-width 8
@@ -66,6 +73,7 @@
 
 
 (require 'mod-dashboard)
+;;(require 'mod-modeline)
 (require 'mod-prettier)
 (require 'mod-fonts)
 (require 'mod-evil)

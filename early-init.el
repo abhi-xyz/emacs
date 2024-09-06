@@ -21,6 +21,9 @@
 ;(global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
+(global-hl-line-mode 1)
+
+
 (add-to-list 'load-path "~/.config/emacs/mods/")
 (add-to-list 'load-path "~/.config/emacs/mods/svg-lib/")
 (add-to-list 'load-path "~/.config/emacs/mods/nano-sidebar/")
@@ -28,3 +31,15 @@
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/nano-theme/")
 
 (setq backup-directory-alist '((".*" . "~/.local/share/Trash/files")))
+
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file 'noerror)
+
+;; Set eln-cache dir
+(when (boundp 'native-comp-eln-load-path)
+  (startup-redirect-eln-cache (expand-file-name "~/.local/share/emacs/eln-cache/" user-emacs-directory)))
+
+
+;; Update `straight.el` to use the new directory
+(setq straight-base-dir (expand-file-name "~/.local/share/emacs"))
+

@@ -1,10 +1,11 @@
 ; -------------------------------
 ; -- org publish
 ; -------------------------------
-
-
-(require 'auctex)
+(use-package auctex
+  :ensure t
+  )
 (require 'tex)
+
 (push (list 'output-pdf "Zathura") TeX-view-program-selection)
 ;(push (list 'output-pdf "Zathura") Tex-view-program-selection)
 

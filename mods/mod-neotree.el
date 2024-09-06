@@ -1,8 +1,13 @@
 
 
+(use-package neotree
+  :ensure t
+  )
+(use-package treemacs
+  :ensure t
+  )
 
 
-(require 'neotree)
   (setq neo-smart-open t
         neo-show-hidden-files t
         neo-window-width 55
@@ -22,7 +27,6 @@
 
 ;; Customize icons for specific file types using Unicode or text characters
 
-(require 'treemacs)
 ;; Customize Treemacs settings
 (setq treemacs-width 45                    ; Set the width of the Treemacs window
       treemacs-is-never-other-window t      ; Ensure Treemacs is not selected by other-window

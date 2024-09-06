@@ -1,5 +1,7 @@
-(require 'all-the-icons)
-(require 'nerd-icons)
+(use-package all-the-icons
+             :ensure t)
+(use-package nerd-icons
+             :ensure t)
 
 
 ;; --

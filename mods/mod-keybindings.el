@@ -1,6 +1,11 @@
 ; -------------------------------
 ; Keys
 ; -------------------------------
+(use-package general
+  :ensure t
+  )
+
+
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -8,7 +13,6 @@
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 (global-set-key [escape] 'keyboard-escape-quit)
 
-(require 'general)
   (general-evil-setup)
   
   ;; set up 'SPC' as the global leader key
@@ -54,13 +58,6 @@
  "t n" '(neotree-toggle :wk "Toggle Neotree")
  )
 
-
-;;
-;; (global-set-key [escape] 'keyboard-escape-quit)
-;; (global-set-key (kbd "C-=") 'text-scale-increase)
-;; (global-set-key (kbd "C--") 'text-scale-decrease)
-;; (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
-;; (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 ;  (abhi/leader-keys
  ;   "." '(find-file :wk "Find file")
   ;  "TAB TAB" '(comment-line :wk "Comment lines")

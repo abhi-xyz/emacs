@@ -1,28 +1,41 @@
-(require 'vertico)
+(use-package vertico
+  :ensure t
+  )
+
 (vertico-mode 1)
 ;;(vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
 (require 'savehist)
   (savehist-mode)
 
+(use-package marginalia
+  :ensure t
+  )
 
-(require 'marginalia)
 (marginalia-mode)
+(use-package embark
+  :ensure t
+  )
 
-(require 'embark)
 (global-set-key (kbd "C-;") 'embark-act)
 (global-set-key (kbd "C-h b") 'embark-bindings)
+(use-package consult
+  :ensure t
+  )
 
-(require 'consult)
 (global-set-key (kbd "C-s") 'consult-line)
 (global-set-key (kbd "C-x b") 'consult-buffer)
 (global-set-key (kbd "C-x r b") 'consult-bookmark)
+(use-package orderless
+  :ensure t
+  )
 
-(require 'orderless)
 (setq completion-styles '(orderless)
       orderless-matching-styles '(orderless-literal orderless-regexp orderless-prefixes)
       orderless-component-separator " ")  ;; Separator for Orderless
+(use-package corfu
+  :ensure t
+  )
 
-(require 'corfu)
 (global-corfu-mode)
 (setq corfu-cycle t
       corfu-auto t
@@ -31,8 +44,9 @@
       corfu-echo-documentation t
       corfu-quit-at-boundary t
       corfu-quit-no-match 't)  ;; Configure Corfu to respect separators
+(require 'corfu-popupinfo
+  )
 
-(require 'corfu-popupinfo)
 (corfu-popupinfo-mode)
 (setq corfu-popupinfo-delay 0.1)
 
@@ -47,8 +61,10 @@
 (add-hook 'prog-mode-hook #'my/corfu-mode-setup)
 (add-hook 'org-mode-hook #'my/corfu-mode-setup)
 (add-hook 'text-mode-hook #'my/corfu-mode-setup)
+(use-package cape
+  :ensure t
+  )
 
-(require 'cape)
 (add-to-list 'completion-at-point-functions #'cape-dabbrev)  ;; Buffer word completion
 (add-to-list 'completion-at-point-functions #'cape-file)     ;; File path completion
 (add-to-list 'completion-at-point-functions #'cape-elisp-block)     ;; File path completion
