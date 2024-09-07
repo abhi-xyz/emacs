@@ -180,7 +180,7 @@
   (require 'org-roam-protocol))
 
 
-;; -- spacious padding  
+;; -- spacious paddinuugu  
 
 (require 'spacious-padding)
 
@@ -281,5 +281,6 @@
 
 
 (require 'mod-auto-comp)
+(require 'mod-org-tex)
 (require 'mod-neotree)
 (require 'mod-wkey)
