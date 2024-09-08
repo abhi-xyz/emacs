@@ -1,2 +1,2 @@
-;; org-clock-save.el - nixos at <2024-09-07 Sat 12:12>
-(setq org-clock-stored-history '(("/home/abhi/documents/org/income-tax/salaries.org" . 286) ("/home/abhi/documents/org/income-tax/salaries.org" . 121)))
+;; org-clock-save.el - nixos at <2024-09-08 Sun 12:54>
+(setq org-clock-stored-history '(("/home/abhi/documents/org/income-tax/salaries.org" . 809) ("/home/abhi/documents/org/income-tax/salaries.org" . 455) ("/home/abhi/sync/docs/compression.org" . 174)))

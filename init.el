@@ -1,5 +1,21 @@
 (load-theme 'elegant t)
 
+
+;; Customize the hl-line face color
+(set-face-background 'hl-line "#292c3c") ;;
+(set-face-background 'cursor "#94e2d5") ;;
+
+;; In normal mode, use a box cursor
+(setq evil-normal-state-cursor 'box)
+;; In insert mode, use a bar cursor
+(setq evil-insert-state-cursor 'bar)
+;; In visual mode, use a hollow cursor
+(setq evil-visual-state-cursor 'hollow)
+
+
+
+
+
 (require 'straight)
 
 (use-package org
