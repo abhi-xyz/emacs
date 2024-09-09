@@ -91,7 +91,8 @@ read it before opening a new issue about your will.")
                 (elegant-heading "#e0def4" "#e0def4" "blue")        ; official comment
                 (elegant-cyan    "#89dceb" "#91d7e3" "brightcyan")  ; official cyan
                 (elegant-green   "#a6e3a1" "#a6da95" "green")       ; official green
-                (elegant-orange  "#fab387" "#f5a97f" "brightred")   ; official orange
+                (elegant-teal   "#94e2d5" "#a6e3a1" "teal")       ; official green
+                (elegant-orange  "#fab387" "#f5a97f" "brightred")   ; official orange    ;; #94e2d5
                 (elegant-pink    "#f5c2e7" "#f5bde6" "magenta")     ; official pink
                 (elegant-purple  "#cba6f7" "#c6a0f6" "brightmagenta") ; official purple
                 (elegant-red     "#f38ba8" "#ed8796" "red")         ; official red
@@ -105,7 +106,9 @@ read it before opening a new issue about your will.")
                 (fg4             "#9399b2" "#9399b2" "white")
                 (dark-red        "#880000" "#870000" "red") ; 40% darker
                 (dark-green      "#037a22" "#00af00" "green") ; 40% darker
-                (dark-blue       "#0189cc" "#0087ff" "brightblue")))
+                (dark-blue       "#0189cc" "#0087ff" "brightblue")
+                (elegant-maroon-0 "#ea999c")
+))
       (faces '(;; default / basic faces
 
 
@@ -138,6 +141,9 @@ read it before opening a new issue about your will.")
                (org-level-8 :weight normal :foreground ,elegant-heading)
 
 
+(marginalia-date :foreground ,elegant-teal)
+
+
                (orderless-match-face-0  :foreground ,elegant-red-darker)
                (corfu-annotations  :foreground ,elegant-comment)
    
@@ -154,7 +160,7 @@ read it before opening a new issue about your will.")
                (info-quoted-name :foreground ,elegant-orange)
                (info-string :foreground ,elegant-yellow)
                (lazy-highlight :foreground ,fg2 :background ,bg2)
-               (link :foreground ,elegant-cyan :underline t)
+               (link :foreground ,elegant-teal :underline t)
                (linum :slant italic :foreground ,bg3 :background ,elegant-bg)
                (match :background ,elegant-yellow :foreground ,elegant-bg)
                (menu :background ,elegant-current :inverse-video nil
@@ -190,7 +196,7 @@ read it before opening a new issue about your will.")
                (font-lock-constant-face :foreground ,elegant-purple)
                (font-lock-doc-face :foreground ,elegant-comment)
                (font-lock-function-name-face :foreground ,elegant-green :weight bold)
-               (font-lock-keyword-face :foreground ,elegant-cyan :weight bold :slant italic)
+               (font-lock-keyword-face :foreground ,elegant-maroon-0 :weight normal :slant italic)
                (font-lock-negation-char-face :foreground ,elegant-cyan)
                (font-lock-number-face :foreground ,elegant-purple)
                (font-lock-operator-face :foreground ,elegant-pink)
@@ -331,12 +337,6 @@ read it before opening a new issue about your will.")
                (font-latex-match-reference-keywords :foreground ,elegant-cyan)
                (font-latex-match-variable-keywords :foreground ,elegant-fg)
                (font-latex-string-face :foreground ,elegant-yellow)
-               ;; go-test
-               (go-test--ok-face :inherit success)
-               (go-test--error-face :inherit error)
-               (go-test--warning-face :inherit warning)
-               (go-test--pointer-face :foreground ,elegant-pink)
-               (go-test--standard-face :foreground ,elegant-cyan)
                ;; highlight-indentation minor mode
                (highlight-indentation-face :background ,bg2)
                ;; isearch
@@ -426,9 +426,9 @@ read it before opening a new issue about your will.")
                (org-column :background ,bg3)
                (org-column-title :inherit org-column :weight bold :underline t)
                (org-date :foreground ,elegant-cyan :underline t)
-               (org-document-info :foreground ,dark-blue)
+               (org-document-info :foreground ,elegant-teal)
                (org-document-info-keyword :foreground ,elegant-comment)
-               (org-document-title :weight bold :foreground ,elegant-orange
+               (org-document-title :weight bold :foreground ,elegant-teal
                                    ,@(when elegant-enlarge-headings
                                        (list :height elegant-height-doc-title)))
                (org-done :foreground ,elegant-green)
@@ -438,7 +438,7 @@ read it before opening a new issue about your will.")
                (org-headline-done :foreground ,elegant-comment
                                   :weight normal :strike-through t)
                (org-hide :foreground ,elegant-bg :background ,elegant-bg)
-               (org-link :foreground ,elegant-cyan :underline t)
+               (org-link :foreground ,elegant-green :underline t)
                (org-priority :foreground ,elegant-cyan)
                (org-quote :foreground ,elegant-yellow :slant italic)
                (org-scheduled :foreground ,elegant-green)
@@ -452,6 +452,10 @@ read it before opening a new issue about your will.")
                (org-upcoming-deadline :foreground ,elegant-yellow)
                (org-verbatim :inherit org-quote)
                (org-warning :weight bold :foreground ,elegant-pink)
+
+               ;; org-mordern
+               (org-modern-date-active :foreground ,elegant-teal)
+
                ;; outline
                (outline-1 :foreground ,elegant-pink)
                (outline-2 :foreground ,elegant-purple)
@@ -519,7 +523,9 @@ read it before opening a new issue about your will.")
                                       :box (:line-width 2 :color ,bg2 :style nil))
                (tab-line-tab-current :inherit tab-line-tab)
                (tab-line-close-highlight :foreground ,elegant-red)
-               ;; tree-sitter
+;; --               
+;; tree-sitter
+;; --
                (tree-sitter-hl-face:attribute :inherit font-lock-constant-face)
                (tree-sitter-hl-face:comment :inherit font-lock-comment-face)
                (tree-sitter-hl-face:constant :inherit font-lock-constant-face)

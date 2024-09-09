@@ -1,9 +1,10 @@
 (load-theme 'elegant t)
 
-
 ;; Customize the hl-line face color
 (set-face-background 'hl-line "#292c3c") ;;
 (set-face-background 'cursor "#94e2d5") ;;
+
+
 
 ;; In normal mode, use a box cursor
 (setq evil-normal-state-cursor 'box)
@@ -50,6 +51,16 @@
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
+
+
+(setq doom-modeline-enable-word-count t)
+
+(setq doom-modeline-continuous-word-count-modes '(gfm-mode org-mode))
+
+;; Whether display the total line number。
+(setq doom-modeline-total-line-number t)
+
+(setq doom-modeline--flycheck t)
 
 ;; -- evil
 
@@ -110,6 +121,10 @@
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 (global-set-key [escape] 'keyboard-escape-quit)
 
+(define-key evil-normal-state-map (kbd "<f12>") 'tex-compile)
+(define-key evil-normal-state-map (kbd "/") 'treemacs)
+(define-key evil-normal-state-map (kbd "<f8>") 'treemacs)
+
 (general-evil-setup)
 
 ;; set up 'SPC' as the global leader key
@@ -127,6 +142,7 @@
 
   "e r" '(eval-region :wk "Eval Region")
   "e b" '(eval-buffer :wk "Eval Buffer")
+  "e c" '(org-export-dispatch :wk "Org Export Dispatcher")
 
   "f" '(:ignore t :wk "Files")   
   "f f" '(find-file :which-key "Find file")
@@ -182,7 +198,7 @@
 (use-package org-roam
   :ensure t
   :custom
-  (org-roam-directory (file-truename "/home/abhi/documents/org-roam/"))
+  (org-roam-directory (file-truename "/home/abhi/docs/org/org-roam/"))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
