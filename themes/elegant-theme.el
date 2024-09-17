@@ -7,80 +7,57 @@
 ;;;; Configuration options:
 
 (defgroup elegant nil
-  "elegant theme options.
+          "elegant theme options.
 
-The theme has to be reloaded after changing anything in this group."
-  :group 'faces)
+          The theme has to be reloaded after changing anything in this group."
+          :group 'faces)
 
 (defcustom elegant-enlarge-headings t
-  "Use different font sizes for some headings and titles."
-  :type 'boolean
-  :group 'elegant)
+           "Use different font sizes for some headings and titles."
+           :type 'boolean
+           :group 'elegant)
 
 (defcustom elegant-height-title-1 1.3
-  "Font size 100%."
-  :type 'number
-  :group 'elegant)
+           "Font size 100%."
+           :type 'number
+           :group 'elegant)
 
 (defcustom elegant-height-title-2 1.1
-  "Font size 110%."
-  :type 'number
-  :group 'elegant)
+           "Font size 110%."
+           :type 'number
+           :group 'elegant)
 
 (defcustom elegant-height-title-3 1.0
-  "Font size 130%."
-  :type 'number
-  :group 'elegant)
+           "Font size 130%."
+           :type 'number
+           :group 'elegant)
 
 (defcustom elegant-height-doc-title 1.44
-  "Font size 144%."
-  :type 'number
-  :group 'elegant)
+           "Font size 144%."
+           :type 'number
+           :group 'elegant)
 
 (defcustom elegant-alternate-mode-line-and-minibuffer nil
-  "Use less bold and pink in the minibuffer."
-  :type 'boolean
-  :group 'elegant)
+           "Use less bold and pink in the minibuffer."
+           :type 'boolean
+           :group 'elegant)
 
 (defvar elegant-use-24-bit-colors-on-256-colors-terms nil
   "Use true colors even on terminals announcing less capabilities.
 
-Beware the use of this variable.  Using it may lead to unwanted
-behavior, the most common one being an ugly blue background on
-terminals, which don't understand 24 bit colors.  To avoid this
-blue background, when using this variable, one can try to add the
-following lines in their config file after having load the
-elegant theme:
+  Beware the use of this variable.  Using it may lead to unwanted
+  behavior, the most common one being an ugly blue background on
+  terminals, which don't understand 24 bit colors.  To avoid this
+  blue background, when using this variable, one can try to add the
+  following lines in their config file after having load the
+  elegant theme:
 
-    (unless (display-graphic-p)
-      (set-face-background \\='default \"black\" nil))
+  (unless (display-graphic-p)
+    (set-face-background \\='default \"black\" nil))
 
-There is a lot of discussion behind the 256 colors theme (see URL
-`https://github.com/elegant/emacs/pull/57').  Please take time to
-read it before opening a new issue about your will.")
-
-
-;;;; Theme definition:
-;; Define our color palette
-;;  (highlight-high   "#524f67" "#d7d7ff")
-;;  (highlight-med    "#403d52" "#d7d7ff")
-;;  (highlight-low    "#21202E" "#d7d7ff")
-;;  (iris             "#c4a7e7" "#d7d7ff")
-;;  (foam             "#9ccfd8" "#00d7ff")
-;;  (foam-low         "#272B37" "#00d7ff")
-;;  (pine             "#31748f" "#afffff")
-;;  (rose             "#ebbcba" "#ffffff")
-;;  (rose-low         "#302935" "#ffffff")
-;;  (gold             "#f6c177" "#ffd7af")
-;;  (gold-low         "#312A2E" "#ffd7af")
-;;  (love             "#eb6f92" "#ff87af")
-;;  (text             "#e0def4" "#ffffff")
-;;  (subtle           "#908caa" "#ffffff")
-;;  (muted            "#6e6a86" "#ffffff")
-;;  (overlay          "#26233a" "#ffffff")
-;;  (surface          "#1F1D2E" "#ffffff")
-;;  (base             "#191724" "#ffffff")
-;;  (ex               "#16141f" "#F00000"))
+  There is a lot of discussion behind the 256 colors theme (see URL
+                                                                `https://github.com/elegant/emacs/pull/57').  Please take time to
+  read it before opening a new issue about your will.")
 
 ;; Assigment form: VARIABLE COLOR [256-COLOR [TTY-COLOR]]
 (let ((colors '(;; Upstream theme color
@@ -108,7 +85,37 @@ read it before opening a new issue about your will.")
                 (dark-green      "#037a22" "#00af00" "green") ; 40% darker
                 (dark-blue       "#0189cc" "#0087ff" "brightblue")
                 (elegant-maroon-0 "#ea999c")
-))
+                (tokyo-bg "#24283b")
+                (tokyo-bg-dark "#1f2335")
+                (tokyo-bg-hl "#292e42")
+                (tokyo-fg "#c0caf5")
+                (tokyo-fg-1 "#a9b1d6")
+                (tokyo-fg-2 "#3b4261")
+                (tokyo-white "#ffffff")
+                (tokyo-black "#414868")
+                (tokyo-comment "#565f89")
+                (tokyo-dark "#545c7e")
+                (tokyo-dark+1 "#737aa2")
+                (tokyo-blue-1 "#394b70")
+                (tokyo-blue "#3d59a1")
+                (tokyo-blue+1 "#7aa2f7")
+                (tokyo-blue+2 "#2ac3d3")
+                (tokyo-blue+3 "#0db9d7")
+                (tokyo-blue+4 "#89ddff")
+                (tokyo-blue+5 "#b4f9f8")
+                (tokyo-cyan "#7dcfff")
+                (tokyo-magenta "#bb9af7")
+                (tokyo-magenta+1 "#ff007c")
+                (tokyo-purple "#9d7cd8")
+                (tokyo-orange "#ff9e64")
+                (tokyo-yellow "#e0af68")
+                (tokyo-green "#9ece6a")
+                (tokyo-teal-1 "#41a6b5")
+                (tokyo-teal "#1abc9c")
+                (tokyo-teal+1 "#73daca")
+                (tokyo-red-1 "#db4b4b")
+                (tokyo-red "#f7768e")
+                ))
       (faces '(;; default / basic faces
 
 
@@ -141,12 +148,12 @@ read it before opening a new issue about your will.")
                (org-level-8 :weight normal :foreground ,elegant-heading)
 
 
-(marginalia-date :foreground ,elegant-teal)
+               (marginalia-date :foreground ,elegant-teal)
 
 
                (orderless-match-face-0  :foreground ,elegant-red-darker)
                (corfu-annotations  :foreground ,elegant-comment)
-   
+
 
                (cursor :background ,fg3)
                (default :background ,elegant-bg :foreground ,elegant-fg)
@@ -165,22 +172,22 @@ read it before opening a new issue about your will.")
                (match :background ,elegant-yellow :foreground ,elegant-bg)
                (menu :background ,elegant-current :inverse-video nil
                      ,@(if elegant-alternate-mode-line-and-minibuffer
-                           (list :foreground fg3)
+                         (list :foreground fg3)
                          (list :foreground elegant-fg)))
                (minibuffer-prompt
-                ,@(if elegant-alternate-mode-line-and-minibuffer
-                      (list :weight 'normal :foreground elegant-fg)
-                    (list :weight 'bold :foreground elegant-pink)))
+                 ,@(if elegant-alternate-mode-line-and-minibuffer
+                     (list :weight 'normal :foreground elegant-fg)
+                     (list :weight 'bold :foreground elegant-pink)))
                (mode-line :background ,elegant-current
                           :box ,elegant-current :inverse-video nil
                           ,@(if elegant-alternate-mode-line-and-minibuffer
-                                (list :foreground fg3)
+                              (list :foreground fg3)
                               (list :foreground elegant-fg)))
                (mode-line-inactive
-                :background ,elegant-bg :inverse-video nil
-                ,@(if elegant-alternate-mode-line-and-minibuffer
-                      (list :foreground elegant-comment :box elegant-bg)
-                    (list :foreground fg4 :box bg2)))
+                 :background ,elegant-bg :inverse-video nil
+                 ,@(if elegant-alternate-mode-line-and-minibuffer
+                     (list :foreground elegant-comment :box elegant-bg)
+                     (list :foreground fg4 :box bg2)))
                (read-multiple-choice-face :inherit completions-first-difference)
                (region :background ,elegant-current :extend nil)
                (shadow :foreground ,elegant-comment)
@@ -189,22 +196,23 @@ read it before opening a new issue about your will.")
                (trailing-whitespace :background ,elegant-orange)
                (vertical-border :foreground ,bg2)
                (warning :foreground ,elegant-orange)
+               
                ;; syntax / font-lock
-               (font-lock-builtin-face :foreground ,elegant-cyan :slant italic)
+               (font-lock-builtin-face :foreground ,tokyo-teal :slant italic)
                (font-lock-comment-face :inherit shadow)
                (font-lock-comment-delimiter-face :inherit shadow)
-               (font-lock-constant-face :foreground ,elegant-purple)
+               (font-lock-constant-face :foreground ,tokyo-teal)
                (font-lock-doc-face :foreground ,elegant-comment)
-               (font-lock-function-name-face :foreground ,elegant-green :weight bold)
-               (font-lock-keyword-face :foreground ,elegant-maroon-0 :weight normal :slant italic)
+               (font-lock-function-name-face :foreground ,tokyo-blue+1 :weight bold)
+               (font-lock-keyword-face :foreground ,tokyo-red :weight normal :slant italic)
                (font-lock-negation-char-face :foreground ,elegant-cyan)
                (font-lock-number-face :foreground ,elegant-purple)
                (font-lock-operator-face :foreground ,elegant-pink)
-               (font-lock-preprocessor-face :foreground ,elegant-orange)
+               (font-lock-preprocessor-face :foreground ,tokyo-cyan)
                (font-lock-reference-face :inherit font-lock-constant-face) ;; obsolete
                (font-lock-regexp-grouping-backslash :foreground ,elegant-cyan)
                (font-lock-regexp-grouping-construct :foreground ,elegant-purple)
-               (font-lock-string-face :foreground ,elegant-yellow)
+               (font-lock-string-face :foreground ,tokyo-green)
                (font-lock-type-face :inherit font-lock-builtin-face)
                (font-lock-variable-name-face :foreground ,elegant-fg :weight bold)
                (font-lock-warning-face :inherit warning :background ,bg2)
@@ -455,6 +463,8 @@ read it before opening a new issue about your will.")
 
                ;; org-mordern
                (org-modern-date-active :foreground ,elegant-teal)
+               (org-meta-line :foreground ,elegant-teal)
+
 
                ;; outline
                (outline-1 :foreground ,elegant-pink)
@@ -523,9 +533,9 @@ read it before opening a new issue about your will.")
                                       :box (:line-width 2 :color ,bg2 :style nil))
                (tab-line-tab-current :inherit tab-line-tab)
                (tab-line-close-highlight :foreground ,elegant-red)
-;; --               
-;; tree-sitter
-;; --
+               ;; --               
+               ;; tree-sitter
+               ;; --
                (tree-sitter-hl-face:attribute :inherit font-lock-constant-face)
                (tree-sitter-hl-face:comment :inherit font-lock-comment-face)
                (tree-sitter-hl-face:constant :inherit font-lock-constant-face)
@@ -582,25 +592,25 @@ read it before opening a new issue about your will.")
   (apply #'custom-theme-set-faces
          'elegant
          (let ((expand-with-func
-                (lambda (func spec)
-                  (let (reduced-color-list)
-                    (dolist (col colors reduced-color-list)
-                      (push (list (car col) (funcall func col))
-                            reduced-color-list))
-                    (eval `(let ,reduced-color-list
-                             (backquote ,spec))))))
+                 (lambda (func spec)
+                   (let (reduced-color-list)
+                     (dolist (col colors reduced-color-list)
+                       (push (list (car col) (funcall func col))
+                             reduced-color-list))
+                     (eval `(let ,reduced-color-list
+                              (backquote ,spec))))))
                whole-theme)
            (pcase-dolist (`(,face . ,spec) faces)
-             (push `(,face
-                     ((((min-colors 16777216)) ; fully graphical envs
-                       ,(funcall expand-with-func 'cadr spec))
-                      (((min-colors 256))      ; terminal withs 256 colors
-                       ,(if elegant-use-24-bit-colors-on-256-colors-terms
-                            (funcall expand-with-func 'cadr spec)
-                          (funcall expand-with-func 'caddr spec)))
-                      (t                       ; should be only tty-like envs
-                       ,(funcall expand-with-func 'cadddr spec))))
-                   whole-theme))
+                         (push `(,face
+                                  ((((min-colors 16777216)) ; fully graphical envs
+                                    ,(funcall expand-with-func 'cadr spec))
+                                   (((min-colors 256))      ; terminal withs 256 colors
+                                    ,(if elegant-use-24-bit-colors-on-256-colors-terms
+                                       (funcall expand-with-func 'cadr spec)
+                                       (funcall expand-with-func 'caddr spec)))
+                                   (t                       ; should be only tty-like envs
+                                     ,(funcall expand-with-func 'cadddr spec))))
+                               whole-theme))
            whole-theme)))
 
 

@@ -1,5 +1,6 @@
-
 (setq package-enable-at-startup nil)
+
+(setq ring-bell-function 'ignore)
 
 (delete-selection-mode 1)    ;; You can select text and delete it by typing.
 (electric-indent-mode -1)    ;; Turn off the weird indenting that Emacs does by default.

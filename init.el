@@ -1,9 +1,9 @@
 (load-theme 'elegant t)
 
+
 ;; Customize the hl-line face color
 (set-face-background 'hl-line "#292c3c") ;;
 (set-face-background 'cursor "#94e2d5") ;;
-
 
 
 ;; In normal mode, use a box cursor
@@ -14,13 +14,39 @@
 (setq evil-visual-state-cursor 'hollow)
 
 
-
-
-
 (require 'straight)
 
 (use-package org
-  :ensure t)
+             :ensure t)
+
+(use-package htmlize
+             :ensure t)
+
+(setq org-html-validation-link nil)
+
+(use-package rust-mode
+             :ensure t)
+
+
+(use-package eglot
+             :ensure t)
+(add-hook 'rust-mode-hook 'eglot-ensure)
+;; You can also configure additional parameters if needed:
+(setq eglot-server-programs '((rust-mode . ("rust-analyzer"))))
+
+;;(add-to-list 'load-path "~/.config/emacs/mods/yasnippet/")
+;;(add-to-list 'load-path "~/.config/emacs/mods/yasnippet-snippets/")
+
+;;(require 'yasnippet)
+;;(yas-global-mode 1)  ;; Enable yasnippet globally
+;;(require 'yasnippet-snippets)
+
+;;(use-package yasnippet-snippets
+;;  :straight (yasnippet-snippets :type git :host github :repo "AndreaCrotti/yasnippet-snippets"))
+
+
+
+
 
 
 ;; -- dashboard
@@ -100,7 +126,7 @@
              :ensure t)
 
 (add-to-list 'default-frame-alist
-             '(font . "Iosevka Nerd Font-13"))
+             '(font . "Maple Mono-13"))
 
 (custom-set-faces
  '(font-lock-comment-face
@@ -148,9 +174,29 @@
   "f f" '(find-file :which-key "Find file")
   "f o" '(org-roam-node-find :wk "Find org roam nodes")
 
+  "f p" '((lambda ()
+	    (interactive)
+	    (find-file "~/.config/emacs/init.el"))
+	  :wk "Personal Configuration")
+
+  "f t" '((lambda ()
+	    (interactive)
+	    (find-file "~/.config/emacs/themes/elegant-theme.el"))
+	  :wk "Personal Theme")
+
+  "g n" '((lambda ()
+	    (interactive)
+	    (find-file "~/notes/"))
+	  :wk "Go to Notes")
+
+
+
   "l" '(:ignore t :wk "LaTeX")   
   "l l" '(org-latex-export-as-latex :wk "Org to LaTeX Export")
   "l p" '(org-latex-export-to-pdf :wk "Org to PDF Export")
+  "l b" '(latex-insert-block :wk "Latex insert block")
+  "l i" '(latex-insert-item :wk "Latex insert item")
+  "l t b" '(tex-bibtex-file :wk "BibTeX current file")
 
   "n" '(:ignore t :wk "Neotree")
   "n n" '(neotree-toggle :wk "Toggle neotree file viewer")
@@ -170,6 +216,7 @@
   "t t" '(treemacs :wk "Toggle Treemacs")
   "t n" '(neotree-toggle :wk "Toggle Neotree")
   )
+
 
 ;; -- org mode
 
